@@ -1,0 +1,184 @@
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Analytics Stats</h1>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Starter Page</li>
+                </ol>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Ads Traffic</span>
+                        <span class="info-box-number" id="traffic">
+      0
+    </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-down"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Bot Clicks</span>
+                        <span class="info-box-number" id="botcliks">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Human Clicks</span>
+                        <span class="info-box-number" id="humancliks">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Ads Campaign</span>
+                        <span class="info-box-number" id="Campaign">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div style="display: block;" id="builder1" class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>Builder</h3>
+
+                        <p>Creaate Custom Ads</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </div>
+                    <a href="#/custom" class="small-box-footer">Go <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div style="display: block;" id="builder2" class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>Builder</h3>
+
+                        <p>Creaate Native Ads</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                    </div>
+                    <a href="#/native" class="small-box-footer">Go <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div style="display: none;" id="AI1" class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>A.i</h3>
+
+                        <p>Bot Settings</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <a href="#/bot" class="small-box-footer">Go <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div style="display: none;" id="AI2" class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-pink">
+                    <div class="inner">
+                        <h3>A.i</h3>
+
+                        <p>Machine Learning</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <a href="#/machinelearning" class="small-box-footer">Go <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div style="display: none;" id="AI3" class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>A.i</h3>
+
+                        <p>Deep Learning</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <a href="#/deeplearning" class="small-box-footer">Go <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div style="display: none;" id="events" class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-gray">
+                    <div class="inner">
+                        <h3>Events</h3>
+
+                        <p>T- Logs</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <a href="#/eventslog" class="small-box-footer">Go <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+</div>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="./assets/libraries/plugins/chart.js/Chart.min.js"></script>
+<script src="./assets/libraries/dist/js/demo.js"></script>
+<script src="./assets/libraries/dist/js/pages/dashboard3.js"></script>

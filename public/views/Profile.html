@@ -1,0 +1,316 @@
+<style>
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    /* Modal Content/Box */
+    
+    .modal-content {
+        color: #414242;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 30px 60px;
+        width: 500px;
+        /* Could be more or less, depending on screen size */
+        font-family: Lato;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.5px;
+        -webkit-font-smoothing: antialiased;
+        /* Rectangle 2 Copy 3: */
+        background: #FFFFFF;
+        border: 1px solid #9B9C9D;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.20);
+        border-radius: 6px;
+    }
+    
+    .modal-content a {
+        color: #636464;
+    }
+    
+    .modal-content>h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    button#accept {
+        margin: 30px auto;
+        display: block;
+        border: 1px solid #fc4c02;
+        border-radius: 3px;
+        background: #fff;
+        color: #fc4c02;
+        font-size: 16px;
+        height: 48px;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+    
+    .safety {
+        color: #9B9C9D;
+        font-size: 12px;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+    }
+    
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+    
+    .close:hover {
+        background: #00d9ff;
+    }
+</style>
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Profile</h1>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#/">Home</a></li>
+                    <li class="breadcrumb-item active">Starter Page</li>
+                </ol>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content" ng-controller="ProfileCtrl">
+    <div class="container-fluid">
+        <div class="">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header bg-info">
+                    <h3 class="widget-user-username" id="username2"></h3>
+                    <h5 class="widget-user-desc" id="role2"></h5>
+                </div>
+                <div class="widget-user-image">
+                    <img id="photoURL2" src="./assets/libraries/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Avatar">
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-3 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header" id="traffic2">0</h5>
+                                <span class="description-text">Ads Traffic</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <div class="col-sm-3 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header" id="botcliks2">0</h5>
+                                <span class="description-text">Bot Clicks</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-3 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header" id="humancliks2">0</h5>
+                                <span class="description-text">Human Clicks</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-3">
+                            <div class="description-block">
+                                <h5 class="description-header" id="Campaign2">0</h5>
+                                <span class="description-text">
+                                    Ads Campaign</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary btn-block" id="requestPass">Request new password</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!-- /.widget-user -->
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Request New Password</h4>
+                <button type="button" id="close2">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="text-danger wrapper text-center" id="messages5"></div>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" id="forgotEmail2" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn btn-info" id="sendReq">Send</button>
+                <!-- <button type="button" class="btn btn btn-danger" id="close2">Cancel</button> -->
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.container-fluid -->
+</div>
+
+<!-- OPTIONAL SCRIPTS -->
+<script>
+    var modal = document.getElementById('myModal');
+    $("#requestPass").click(function() {
+        modal.style.display = "block";
+    });
+
+
+    $("#close2").click(function() {
+        modal.style.display = "none";
+        // $("#customFile").show();
+
+    });
+
+    $("#sendReq").click(function() {
+        var email = $('#forgotEmail2').val()
+        console.log(email);
+
+
+        firebase.auth().sendPasswordResetEmail(email).then(function() {
+                // $scope.user.resetEmail = "";
+                // $scope.authError = 'A reset link sent to your email address. It will expire after 2 hours.';
+                $('#messages5').text("A reset link sent to your email address. It will expire after 2 hours.");
+                console.log('A reset link sent to your email address. It will expire after 2 hours.');
+                // document.getElementById("forgotEmail2").innerHTML = " ";
+            })
+            .catch(function(error) {
+                // $scope.authError = true;
+                // $scope.authError = error.message;
+                console.log(error);
+                document.getElementById("messages").innerHTML = error.message;
+
+                $('#messages5').text(error.message);
+            });
+
+        // modal.style.display = "none";
+
+    });
+
+    var temp = firebase.auth().currentUser.photoURL;
+    console.log(temp);
+    // console.log(firebase.auth().currentUser.photoURL);
+    // console.log(firebase.auth().currentUser.displayName);
+    if (temp == null) {
+        document.getElementById("photoURL2").src = "./assets/libraries/dist/img/user2-160x160.jpg";
+    } else {
+        document.getElementById("photoURL2").src = temp;
+    }
+    if (firebase.auth().currentUser.displayName == null) {
+        document.getElementById("username2").innerHTML = firebase.auth().currentUser.email;
+    } else {
+        document.getElementById("username2").innerHTML = firebase.auth().currentUser.displayName;
+    }
+
+
+    var userVerify = firebase.auth().currentUser;
+    var ref2 = firebase.database().ref("datasets/users");
+    ref2.orderByChild("role").once("value")
+        .then(function(snapshot) {
+            var exist = snapshot.exists();
+            var role = snapshot.child(userVerify.uid).child("role").val();
+            var UID = firebase.auth().currentUser.uid;
+
+            // console.log(role);
+            document.getElementById("role2").innerHTML = role;
+
+        });
+
+    var bc = [];
+    var hc = [];
+
+
+    var currentUrl = window.location.hostname;
+
+
+
+    var ref = firebase.database().ref("/datasets/human/");
+    ref.orderByChild("url").equalTo(currentUrl).on("child_added", function(snapshot) {
+        hc.push(snapshot.val());
+        console.log('Human:', hc.length)
+        $('#humancliks2').text(hc.length)
+        $('#traffic2').text(bc.length + hc.length)
+    });
+
+    var ref = firebase.database().ref("/datasets/bot/");
+    ref.orderByChild("url").equalTo(currentUrl).on("child_added", function(snapshot) {
+        bc.push(snapshot.val());
+        console.log('Bot:', bc.length)
+        $('#botcliks2').text(bc.length)
+        $('#traffic2').text(bc.length + hc.length)
+    });
+
+    var ref = firebase.database().ref("/datasets/adscount");
+    ref.orderByChild("domain").equalTo(currentUrl).on("child_added", function(snapshot) {
+        console.log("Data:", snapshot.val().count);
+        $('#Campaign2').text(snapshot.val().count);
+    });
+</script>

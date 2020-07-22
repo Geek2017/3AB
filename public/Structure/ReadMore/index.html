@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Verko</title>
+
+    <!-- <link href="./assets/css/bt.css" rel="stylesheet"> -->
+
+    <link href="./assets/css/frame.css" rel="stylesheet">
+    <script src="./assets/js/jqm.js"></script>
+
+    <script>
+        localStorage.clear();
+        if (localStorage.getItem('adsurl') == null) {
+            localStorage.setItem('adsurl', './assets/ads/')
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class='second-row'><iframe id="abc_frame" src=''></iframe></div>
+    </div>
+
+
+    <script>
+        $('#abc_frame').attr('src', localStorage.getItem('adsurl'));
+    </script>
+
+
+</body>
+
+</html>

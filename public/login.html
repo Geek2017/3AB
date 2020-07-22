@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Verko | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <script src="./assets/libraries/plugins/jquery/jquery.min.js"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/libraries/Bootstrap/bootstrap.css"> -->
+    <link rel="icon" href="./assets/libraries/dist/img/AdminLTELogo.png" sizes="16x16">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./assets/libraries/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="./assets/libraries/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="./assets/libraries/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyA-fqW8NmUfA6YIMMJ-HLRuTVRJtC7b6mw",
+            authDomain: "geocoord-1532713040637.firebaseapp.com",
+            databaseURL: "https://geocoord-1532713040637.firebaseio.com",
+            projectId: "geocoord-1532713040637"
+        };
+
+        firebase.initializeApp(config);
+    </script>
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box" id="loginStyle" style="display: block;">
+        <div class="login-logo">
+            <a href="./index2.html"><b>Verko</b>Digital Mktg.</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                <div class="text-danger wrapper text-center" id="messages"></div>
+                <br>
+
+                <form action="./index3.html" method="post">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" id="emailSignIn" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="passwordSignIn" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                Remember Me
+              </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="button" class="btn btn-primary btn-block" id="btnSignin" onclick="signin()">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <div class="social-auth-links text-center mb-3">
+                    <p>- OR -</p>
+                    <!-- <a href="#" class="btn btn-block btn-primary">
+                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                    </a> -->
+                    <a href="#" class="btn btn-block btn-danger" onclick="googleSignin()">
+                        <i class="fab fa-google-plus mr-2"></i> Sign up using Google
+                    </a>
+                </div>
+                <!-- /.social-auth-links -->
+
+                <p class="mb-1">
+                    <a href="#" id="btnToForgot">I forgot my password</a>
+                </p>
+                <p class="mb-0">
+                    <a href="#" class="text-center" id="btnToRegister">Register a new membership</a>
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+    <div class="register-box" id="registerStyle" style="display: none;">
+        <div class="register-logo">
+            <a href="../../index2.html"><b>Verko</b>Digital Mktg.</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
+
+                <div class="text-danger wrapper text-center" id="messages2"></div>
+                <br>
+
+                <form action="../../index.html" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="username" placeholder="Username">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Retype password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
+              </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="button" class="btn btn-primary btn-block" id="btnRegister" onclick="register()">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                    <!-- <a href="#" class="btn btn-block btn-primary">
+                        <i class="fab fa-facebook mr-2"></i> Sign up using Facebook
+                    </a> -->
+                    <!-- <button class="btn btn-block btn-danger fab fa-google-plus mr-2" onclick="googleSignin()">Google Signin</button> -->
+                    <a href="#" class="btn btn-block btn-danger" onclick="googleSignin2()">
+                        <i class="fab fa-google-plus mr-2"></i> Sign up using Google+
+                    </a>
+                </div>
+
+                <a href="#" class="text-center" id="btnToLogin">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <div class="login-box" id="forgotStyle" style="display: none;">
+        <div class="login-logo">
+            <a href="../../index2.html"><b>Admin</b>LTE</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
+
+                <div class="text-danger wrapper text-center" id="messages3"></div>
+                <br>
+
+                <form action="" method="post">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" id="forgotEmail" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary btn-block" onclick="resetPassword()">Request new password</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <p class="mt-3 mb-1">
+                    <a href="#" id="btnToLogin2">Login</a>
+                </p>
+                <p class="mb-0">
+                    <a href="#" class="text-center" id="btnToRegister2">Register a new membership</a>
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="./assets/libraries/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="./assets/libraries/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="./assets/libraries/dist/js/adminlte.min.js"></script>
+
+    <script>
+        $('#btnToRegister').click(function() {
+            $('#loginStyle').hide();
+            $('#forgotStyle').hide();
+            $('#registerStyle').show();
+            console.log('To Register');
+        });
+        $('#btnToRegister2').click(function() {
+            $('#loginStyle').hide();
+            $('#forgotStyle').hide();
+            $('#registerStyle').show();
+            console.log('To Register');
+        });
+
+        $('#btnToLogin').click(function() {
+            $('#registerStyle').hide();
+            $('#forgotStyle').hide();
+            $('#loginStyle').show();
+            console.log('To Login');
+        });
+        $('#btnToLogin2').click(function() {
+            $('#registerStyle').hide();
+            $('#forgotStyle').hide();
+            $('#loginStyle').show();
+            console.log('To Login');
+        });
+
+        $('#btnToForgot').click(function() {
+            $('#registerStyle').hide();
+            $('#loginStyle').hide();
+            $('#forgotStyle').show();
+            console.log('To Forgot');
+        });
+
+        function register() {
+            var username = $('#username').val()
+            var email = $('#email').val()
+            var password = $('#password').val()
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("register", "custom");
+
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then(function(user) {
+                    console.log(user.uid);
+                    $('#registerStyle').hide();
+                    $('#forgotStyle').hide();
+                    $('#loginStyle').show();
+                    document.getElementById("username").innerHTML = " ";
+                    document.getElementById("email").innerHTML = " ";
+                    document.getElementById("password").innerHTML = " ";
+                    window.location.href = './index.html';
+                    // username = "";
+                    // email = "";
+                    // password = "";
+                }).catch(function(error) {
+                    console.log(error.code);
+                    console.log(error.message);
+                    document.getElementById("messages2").innerHTML = error.message;
+                });
+        }
+
+        function signin() {
+            // $scope.errorMessage = false;
+            // var auth = $firebase.auth();
+            var email = $('#emailSignIn').val()
+            var password = $('#passwordSignIn').val()
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then(function(user) {
+                    // console.log(user.uid);
+                    // window.location.pathname = '/3AB/public/index.html';
+                    window.location.href = './index.html';
+                })
+                .catch(function(error) {
+                    console.log(error);
+                    document.getElementById("messages").innerHTML = error.message;
+                });
+            // console.log($('#username').val());
+        }
+
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        function googleSignin() {
+            localStorage.setItem("register", "gmail");
+            firebase.auth()
+
+            .signInWithPopup(provider).then(function(result) {
+                // window.location.pathname = '/3AB/public/index.html';
+                window.location.href = './index.html';
+                var token = result.credential.accessToken;
+                var user = result.user;
+
+                console.log(token)
+                console.log(user)
+            }).catch(function(error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                console.log(error.code)
+                console.log(error.message)
+            });
+        }
+
+        function googleSignin2() {
+            localStorage.setItem("register", "gmail");
+            firebase.auth()
+
+            .signInWithPopup(provider).then(function(result) {
+                // window.location.pathname = '/3AB/public/index.html';
+                window.location.href = './index.html';
+                var token = result.credential.accessToken;
+                var user = result.user;
+
+                console.log(token)
+                console.log(user)
+            }).catch(function(error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                console.log(error.code)
+                console.log(error.message)
+            });
+        }
+
+        function resetPassword() {
+            var email = $('#forgotEmail').val()
+            console.log(email);
+
+
+            firebase.auth().sendPasswordResetEmail(email).then(function() {
+                    // $scope.user.resetEmail = "";
+                    // $scope.authError = 'A reset link sent to your email address. It will expire after 2 hours.';
+                    document.getElementById("messages3").innerHTML = "A reset link sent to your email address. It will expire after 2 hours.";
+                    console.log('A reset link sent to your email address. It will expire after 2 hours.');
+                    document.getElementById("forgotEmail").innerHTML = " ";
+                })
+                .catch(function(error) {
+                    // $scope.authError = true;
+                    // $scope.authError = error.message;
+                    console.log(error);
+                    document.getElementById("messages3").innerHTML = error.message;
+                });
+
+        }
+    </script>
+
+</body>
+
+</html>

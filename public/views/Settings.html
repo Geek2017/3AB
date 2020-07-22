@@ -1,0 +1,336 @@
+<style>
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    /* Modal Content/Box */
+    
+    .modal-content {
+        color: #414242;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 30px 60px;
+        width: 500px;
+        /* Could be more or less, depending on screen size */
+        font-family: Lato;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.5px;
+        -webkit-font-smoothing: antialiased;
+        /* Rectangle 2 Copy 3: */
+        background: #FFFFFF;
+        border: 1px solid #9B9C9D;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.20);
+        border-radius: 6px;
+    }
+    
+    .modal-content a {
+        color: #636464;
+    }
+    
+    .modal-content>h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    button#accept {
+        margin: 30px auto;
+        display: block;
+        border: 1px solid #fc4c02;
+        border-radius: 3px;
+        background: #fff;
+        color: #fc4c02;
+        font-size: 16px;
+        height: 48px;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+    
+    .safety {
+        color: #9B9C9D;
+        font-size: 12px;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+    }
+    
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+    
+    .close:hover {
+        background: #00d9ff;
+    }
+</style>
+
+<div ng-controller="SettingsCtrl">
+    <h2>Users</h2>
+
+    <table class="table table-bordered table-hover bg-white-only">
+        <thead>
+            <tr style="font-weight: bold">
+                <td style="width:20%">Username</td>
+                <!-- <td style="width:35%">Fullname</td> -->
+                <td style="width:35%%">Email</td>
+                <!-- <td style="width:20%">Country</td>
+                <td style="width:20%">Gender</td> -->
+                <!-- <td style="width:35%">Address</td>
+            <td style="width:25%">Number</td> -->
+                <td style="width:20%">Roles</td>
+                <td style="width:20%">Actions</td>
+            </tr>
+        </thead>
+
+        <tbody id="myTable">
+            <tr ng-repeat="users in data">
+                <td class="v-middle">
+                    <!-- editable username (text with validation) -->
+                    <span>
+                        <!-- <div ng-bind-html="users.username"></div> -->
+{{ users.username }}
+</span>
+                </td>
+                <!-- <td class="v-middle">
+                editable username (text with validation)
+                <span>
+{{ users.fullname }}
+</span>
+            </td> -->
+                <td class="v-middle">
+                    <!-- editable status (select-local) -->
+                    <span>
+{{ users.email }}
+</span>
+                </td>
+                <!--<td class="v-middle">
+                 editable status (select-local) 
+                <span>
+{{ users.address }}
+</span>
+            </td>
+            <td class="v-middle">
+                 editable status (select-local) 
+                <span>
+{{ users.number }}
+</span>
+            </td> -->
+                <td class="v-middle">
+                    <!-- editable group (select-remote) -->
+                    <span>
+{{ users.role }}
+</span>
+                </td>
+                <td style="white-space: nowrap">
+                    <div class="pull-left"></div>
+                    <button type="button" class="btn btn btn-info" ng-click="selectUser(users)">edit</button>
+                    <button type="button" class="btn btn btn-danger" ng-click="selectUser2(users)">delete</button>
+                    <!-- </div>
+                <button class="btn btn-xs btn-info" ng-click="rowform.$show()">edit</button>
+                <button class="btn btn-xs btn-danger" ng-click="removeUser($index)">del</button>
+            </div> -->
+                </td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="myModalEdit" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="">Username</label>
+                        <div class="">
+                            <input type="text" class="form-control" ng-value="newUsername" ng-model="clickedUser.username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="">Email</label>
+                        <div class="0">
+                            <input type="text" class="form-control" ng-value="newEmail" ng-model="clickedUser.email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="">Role</label>
+                        <div class="">
+                            <!-- <select ng-if="clickedUser.role == 'ordinary'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails1">{{role.rolename}}</option> 
+</select>
+
+<select ng-if="clickedUser.role == 'investor'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails2">{{role.rolename}}</option> 
+</select>
+
+<select ng-if="clickedUser.role == 'admin'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails3">{{role.rolename}}</option> 
+</select> -->
+                            <select ng-model="clickedUser.role">
+                                <option value="ordinary">Ordinary</option>
+    <option value="super">Super User</option>
+    <option value="admin">Admin</option>
+    <!-- <option value="" selected></option> -->
+    <!-- <option ng-if="clickedUser.role =='ordinary'" ng-repeat="role in roleDetails1">{{role.rolename}}</option> 
+    <option ng-if="clickedUser.role =='investor'" ng-repeat="role in roleDetails2">{{role.rolename}}</option> 
+    <option ng-if="clickedUser.role =='admin'" ng-repeat="role in roleDetails3">{{role.rolename}}</option>  -->
+</select>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn btn-info" data-dismiss="modal" ng-click="updateUser()">Save</button>
+                    <button type="button" class="btn btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalDelete" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+
+                    <p>You want to delete <strong style="color: red;">{{clickedUser.username}}'s</strong> information...</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteUser()">Yes</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit User</h4>
+                <button type="button" ng-click="close()">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="">Username</label>
+                    <div class="">
+                        <input type="text" class="form-control" ng-value="newUsername" ng-model="clickedUser.username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="">Email</label>
+                    <div class="0">
+                        <input type="text" class="form-control" ng-value="newEmail" ng-model="clickedUser.email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="">Role</label>
+                    <div class="">
+                        <select ng-model="clickedUser.role">
+                            <option value="ordinary">Ordinary</option>
+                            <option value="super">Super User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn btn-info" data-dismiss="modal" ng-click="updateUser()">Save</button>
+                <button type="button" class="btn btn btn-danger" ng-click="close()">Cancel</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Are you sure?</h4>
+                <button type="button" ng-click="close2()">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+                <p>You want to delete <strong style="color: red;">{{clickedUser.username}}'s</strong> information...</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
+                <button type="button" class="btn btn-info" ng-click="close2()">No</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>

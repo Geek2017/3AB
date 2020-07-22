@@ -1,0 +1,929 @@
+<style>
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    /* Modal Content/Box */
+    
+    .modal-content {
+        color: #414242;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 30px 60px;
+        width: 500px;
+        /* Could be more or less, depending on screen size */
+        font-family: Lato;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.5px;
+        -webkit-font-smoothing: antialiased;
+        /* Rectangle 2 Copy 3: */
+        background: #FFFFFF;
+        border: 1px solid #9B9C9D;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.20);
+        border-radius: 6px;
+    }
+    
+    .modal-content a {
+        color: #636464;
+    }
+    
+    .modal-content>h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    button#accept {
+        margin: 30px auto;
+        display: block;
+        border: 1px solid #fc4c02;
+        border-radius: 3px;
+        background: #fff;
+        color: #fc4c02;
+        font-size: 16px;
+        height: 48px;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+    
+    .safety {
+        color: #9B9C9D;
+        font-size: 12px;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+    }
+    
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+    
+    .close:hover {
+        background: #00d9ff;
+    }
+    
+    .responsive {
+        width: 100%;
+        height: auto;
+    }
+    
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar2 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar3 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar4 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar5 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar6 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar7 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar8 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+    
+    #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    #snackbar2.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    #snackbar3.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    #snackbar4.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    #snackbar5.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    #snackbar6.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    #snackbar7.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    #snackbar8.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    @-webkit-keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+    
+    @-webkit-keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+    
+    @keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+</style>
+<div class="container-fluid">
+
+    <!-- Ad Type -->
+    <div class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title">Ad Type</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                <!-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button> -->
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="row">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="theme1" name="customRadio2" checked>
+                                <label for="theme1" class="custom-control-label">5 Seconds</label>
+                                <br/><br/><br/><br/><br/>
+
+                                <img src="./assets/img/5Sec.png" alt="5Sec" class="responsive" width="400" height="350">
+
+
+                                <!-- <button type="submit" id="save1" class="btn btn-primary">Save</button> -->
+
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-sm">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="theme2" name="customRadio2">
+                                <label for="theme2" class="custom-control-label">Loader</label>
+                                <br/><br/><br/><br/><br/>
+
+                                <img src="./assets/img/Loader.png" alt="Loader" class="responsive" width="400" height="350">
+
+                                <!-- <button type="submit" id="save2" class="btn btn-primary">Save</button> -->
+                            </div>
+                            <br>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="theme3" name="customRadio2">
+                                <label for="theme3" class="custom-control-label">Read more...</label>
+                                <br/><br/><br/><br/><br/>
+
+                                <img src="./assets/img/ReadMore.png" alt="Loader" class="responsive" width="400" height="350">
+
+                                <!-- <button type="submit" id="save3" class="btn btn-primary">Save</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+
+
+    <!-- LOADER THEMES -->
+    <div style="display: none;" id="loaderTheme" class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title" id="h3Tag"> </h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body" style="display: none;" id="loader2">
+            <div class="row">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="theme4" name="customRadio3" checked>
+                                <label for="theme4" class="custom-control-label">Default</label>
+                                <br/><br/><br/><br/><br/>
+                                <div id="preloader">
+                                    <div id="loader"></div>
+                                </div>
+                                <br/><br/><br/><br/>
+
+                                <!-- Color Picker -->
+
+                                <div class="form-group">
+                                    <label>Color picker: Line 1</label>
+
+                                    <div class="input-group my-colorpicker2">
+                                        <input type="text" id="picker1" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Color picker: Line 2</label>
+
+                                    <div class="input-group my-colorpicker3">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Color picker: Line 3</label>
+
+                                    <div class="input-group my-colorpicker4">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+
+                                <button type="submit" id="save1" class="btn btn-primary">Save</button>
+
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-sm">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="theme5" name="customRadio3">
+                                <label for="theme5" class="custom-control-label">Circle 1</label>
+                                <br/><br/>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="loader4">
+                                            <span class="loader loader-1"></span>
+                                            <span class="loader loader-2"></span>
+                                            <span class="loader loader-3"></span>
+                                            <span class="loader loader-4"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br/><br/><br/><br/>
+
+                                <!-- Color Picker -->
+                                <div class="form-group">
+                                    <label>Color picker: Circle 1</label>
+
+                                    <div class="input-group my-colorpicker5">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Color picker: Circle 2</label>
+
+                                    <div class="input-group my-colorpicker6">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Color picker: Circle 3</label>
+
+                                    <div class="input-group my-colorpicker7">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Color picker: Circle 4</label>
+
+                                    <div class="input-group my-colorpicker8">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+                                <button type="submit" id="save2" class="btn btn-primary">Save</button>
+                            </div>
+                            <br>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="theme6" name="customRadio3">
+                                <label for="theme6" class="custom-control-label">Circle 2</label>
+                                <br/><br/>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="preloader1">
+                                            <div class="loader loader-inner-1">
+                                                <div class="loader loader-inner-2">
+                                                    <div class="loader loader-inner-3">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br/><br/><br/><br/>
+
+                                <!-- Color Picker -->
+                                <div class="form-group">
+                                    <label>Color picker:</label>
+
+                                    <div class="input-group my-colorpicker9">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Color picker: Line 2</label>
+
+                                    <div class="input-group my-colorpicker10">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Color picker: Line 3</label>
+
+                                    <div class="input-group my-colorpicker11">
+                                        <input type="text" class="form-control">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <button type="submit" id="save3" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+    <!-- FILE PATH -->
+    <div class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title">File Path</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                <!-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button> -->
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="row">
+
+                <!-- radio -->
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio1" checked>
+                    <label for="customRadio1" class="custom-control-label">Native Path</label>
+                </div>
+                &nbsp;&nbsp;
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio1">
+                    <label for="customRadio2" class="custom-control-label">Custom Path</label>
+                </div>
+            </div>
+
+            <br><label for="basic-url">File Uploader</label>
+            <div id="defaultFile" class="input-group mb-3">
+
+                <div style="display: block;" class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">public_html/</span>
+                </div>
+                <input type="text" class="form-control" name="folder_name" id="folder_name" aria-describedby="basic-addon3" placeholder="Enter the name of your folder">
+                <input type="hidden" name="action" id="action">
+                <input type="hidden" name="old_name" id="old_name">
+                <button type="button" name="folder_button" id="folder_button" class="btn btn-success btn-flat" style="float: right;">Create Folder</button>
+                <!-- <button type="button" name="default_folder" id="default_folder" class="btn btn-success btn-flat" style="float: right;">Go</button> -->
+            </div>
+            <div style="display: none;" id="customFile" class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">public_html/</span>
+                </div>
+                <input type="text" class="form-control" name="folder_name2" id="folder_name2" aria-describedby="basic-addon3" placeholder="Enter the name of your folder">
+                <input type="hidden" name="action2" id="action2">
+                <input type="hidden" name="old_name2" id="old_name2">
+                <button type="button" name="folder_button2" id="folder_button2" class="btn btn-success btn-flat" style="float: right;">Create Folder</button>
+
+                <br>
+                <div id="folder_table" class="table-responsive">
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <br>
+
+            <div class="input-group" id="botPath1">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="botPathName">Bot Path</span>
+                </div>
+                <input type="text" class="form-control" name="botPathText" id="botPathText" aria-describedby="basic-addon3" disabled>
+
+            </div>
+
+            <br>
+
+            <div class="input-group" id="humanPath1">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="humanPathName">Human Path</span>
+                </div>
+                <input type="text" class="form-control" name="humanPathText" id="humanPathText" aria-describedby="basic-addon3" disabled>
+            </div>
+
+            <!-- <div>
+                <input type="file" id="botFile" name="botFile">
+            </div> -->
+
+            <!-- <div class="form-group">
+                <label for="exampleInputFile">Bot File</label>
+                <div class="input-group">
+                    <input type="file" id="botFile" name="botFile">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="botFile" name="botFile">
+                        <label id="labelID" class="custom-file-label" for="exampleInputFile">Choose file and Click Upload</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="button" name="botFileBtn" id="botFileBtn" class="btn btn-success" style="float: right;">Upload</button>
+                    </div>
+                </div>
+            </div> -->
+
+            <div style="display: none;" id="botURL" class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="botURLPath">Bot URL Path</span>
+                </div>
+                <div class="custom-file">
+                    <input type="text" class="form-control" name="botURLPathText" id="botURLPathText" aria-describedby="basic-addon3" placeholder="(e.g. www.bot.com)">
+                    <!-- <button type="button" name="botURLSave" id="botURLSave" class="btn btn-danger" style="float: right;">Save</button> -->
+                </div>
+            </div>
+            <br>
+
+            <div style="display: none;" id="humanURL" class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="humanURLPath">Human URL Path</span>
+                </div>
+                <div class="custom-file">
+                    <input type="text" class="form-control" name="humanURLPathText" id="humanURLPathText" aria-describedby="basic-addon3" placeholder="(e.g. www.human.com)">
+                    <!-- <button type="button" name="humanURLSave" id="humanURLSave" class="btn btn-danger" style="float: right;">Save</button> -->
+                </div>
+            </div>
+            <br>
+            <div style="display: none;" id="URLSave">
+                <button type="button" name="URLSave" id="URLSave" class="btn btn-danger" style="float: right;">Save</button>
+            </div>
+
+
+            <div style="display: none;" id="botBrowse" class="input-group">
+                <label for="exampleInputFile">Upload Bot File (zip/rar format)</label>
+                <div class="input-group">
+                    <!-- <input type="file" id="botFile" name="botFile"> -->
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="botFile" name="botFile">
+                        <label id="labelID" class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <!-- <div class="input-group-append">
+                        <button type="button" name="botFileBtn" id="botFileBtn" class="btn btn-success" style="float: right;">Upload</button>
+                    </div> -->
+                </div>
+            </div>
+            <br>
+            <div style="display: none;" id="botPath2" class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="botPathName2">Bot Path</span>
+                </div>
+                <div class="custom-file">
+                    <input type="text" class="form-control" name="botFileName" id="botFileName" aria-describedby="basic-addon3" placeholder="Enter the name of your bot html file (e.g bot.html, adsBot.html)">
+                    <!-- <button type="button" name="botFileSave" id="botFileSave" class="btn btn-danger" style="float: right;">Save</button> -->
+                </div>
+            </div>
+            <br>
+
+
+            <div style="display: none;" id="humanBrowse" class="input-group">
+                <label for="exampleInputFile">Upload Human File (zip/rar format)</label>
+                <div class="input-group">
+                    <!-- <input type="file" id="botFile" name="botFile"> -->
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="humanFile" name="humanFile">
+                        <label id="labelID2" class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <!-- <div class="input-group-append">
+                        <button type="button" name="humanFileBtn" id="humanFileBtn" class="btn btn-success" style="float: right;">Upload</button>
+                    </div> -->
+                </div>
+            </div>
+            <br>
+            <div style="display: none;" id="humanPath2" class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="humanPathName2">Human Path</span>
+                </div>
+                <div class="custom-file">
+                    <input type="text" class="form-control" name="humanFileName" id="humanFileName" aria-describedby="basic-addon3" placeholder="Enter the name of your human html file (e.g human.html, adsHuman.html)">
+                    <!-- <button type="button" name="humanFileSave" id="humanFileSave" class="btn btn-danger" style="float: right;">Save</button> -->
+                </div>
+            </div>
+
+            <br>
+            <div style="display: none;" id="uploadSave">
+                <button type="button" name="uploadSave" id="uploadSave" class="btn btn-danger" style="float: right;">Save</button>
+            </div>
+            <br>
+
+
+
+
+            <!-- <div class="input-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Bot Path</span>
+                                </div>
+                                <input type="file" class="form-control">
+                                <span class="input-group-append">
+                                  <button type="button" class="btn btn-info btn-flat">Find!</button>
+                                </span>
+                            </div>
+
+                            <div class="input-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Human Path</span>
+                                </div>
+                                <input type="file" class="form-control">
+                                <span class="input-group-append">
+                                  <button type="button" class="btn btn-info btn-flat">Find!</button>
+                                </span>
+                            </div> -->
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+
+
+
+
+</div>
+
+<div id="snackbar">Folder Created! Redirectiing to Native Builder. . .</div>
+<div id="snackbar2">Enter Folder Name</div>
+
+<div id="snackbar3">Your bot and human URL has been saved!</div>
+<div id="snackbar4">Enter Folder Name</div>
+
+<div id="snackbar5">Enter your bot and human html file</div>
+<div id="snackbar6">Your bot and human html file has been saved!</div>
+
+<div id="snackbar7">Enter your human html file</div>
+<div id="snackbar8">Your human html file has been saved!</div>
+
+<div id="confirmModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span id="change_title">Redirect</span></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p>Do you want to redirect to the Native Page?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" name="noRedirect" id="noRedirect">No</button>
+                <button type="button" class="btn btn-primary" name="redirect" id="redirect">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="doneModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span id="change_title">Done!</span></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p>You done creating your custom path</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" name="done" id="done">Okay</button>
+                <!-- <button type="button" class="btn btn-primary" name="redirect" id="redirect">Yes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="pickModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Custom</h4>
+            <button type="button" id="close">&times;</button>
+
+        </div>
+        <div class="modal-body">
+
+            <p>What type of Custom path do you want?</p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="uploadPick">Upload File</button>
+            <button type="button" class="btn btn-info" id="urlPick">URL</button>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- <div id="folderModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span id="change_title">Create Folder</span></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p>Enter Folder Name
+                    <input type="text" name="folder_name" id="folder_name" class="form-control">
+                </p>
+                <br>
+                <input type="hidden" name="action" id="action">
+                <input type="hidden" name="old_name" id="old_name">
+                <input type="button" name="folder_button" id="folder_button" class="btn btn-info pull-right" value="Create">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <script type="text/javascript">
+    function createFolder() {
+        $.get("test.php");
+        console.log('successully created!')
+        return false;
+    }
+</script> -->
+
+<script>
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+
+    <link href="../css/frame.css" rel="stylesheet">
+    <script src="../js/jqm.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyA-fqW8NmUfA6YIMMJ-HLRuTVRJtC7b6mw",
+            authDomain: "geocoord-1532713040637.firebaseapp.com",
+            databaseURL: "https://geocoord-1532713040637.firebaseio.com",
+            projectId: "geocoord-1532713040637"
+        };
+
+        firebase.initializeApp(config);
+    </script>
+    <style type="text/css">
+        .fade-anchor {
+            background: -webkit-linear-gradient(top, rgba(237, 239, 240, 0), rgba(237, 239, 240, 0) 170px, #edeff0 500px);
+            background: linear-gradient(to bottom, rgba(237, 239, 240, 0), rgba(237, 239, 240, 0) 170px, #edeff0 500px);
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: block;
+            height: 100%;
+            padding-top: 500px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            text-align: center;
+            -webkit-transition: background 150ms ease-in;
+            transition: background 150ms ease-in;
+        }
+        
+        .fade-anchor-text {
+            background: #b90808;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 9pt 9pt 0 0;
+            color: white;
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+            padding: 10px;
+            text-decoration: underline;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+    </style>
+    <script>
+        $.getJSON("../js/data.json", function(data) {
+            console.log(data.bot);
+            console.log(data.human);
+
+            var human = data.human;
+            var bot = data.bot;
+            var img = $("#abc_frame");
+            img.attr("src", data.bot + img.attr("src"));
+        })
+    </script>
+
+
+</head>
+
+<body>
+
+    <div>
+        <div id="preloader">
+
+
+            <div class='second-row'>
+                <iframe id="abc_frame" src=''></iframe></div>
+
+        </div>
+        <div class="fade-anchor"><span class="fade-anchor-text ">Read More..</span></div>
+    </div>
+
+    <script>
+        $(' .fade-anchor ').click(function(e) {
+            e.preventDefault();
+
+            $('#fade-content ').css('max-height ', 'none ');
+            $('.fade-anchor ').remove();
+        });
+    </script>
+
+    <script src="../js/call.js"></script>
+
+</body>
+
+</html>
